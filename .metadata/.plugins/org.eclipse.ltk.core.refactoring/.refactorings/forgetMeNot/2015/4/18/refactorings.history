@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;forgetMeNot&apos;&#x0D;&#x0A;- Original project: &apos;forgetMeNot&apos;&#x0D;&#x0A;- Original element: &apos;forgetMeNot/src/android.support.v7.app&apos;" description="Delete element" element1="/src&lt;android.support.v7.app" element2="/src&lt;android.support.v7" element3="/src&lt;android.support" element4="/src&lt;android" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1430304632253" subPackages="false" version="1.0"/>
+</session>
