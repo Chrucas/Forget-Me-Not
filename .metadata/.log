@@ -366,3 +366,11 @@ Contains: The project description file (.project) for 'forgetMeNot' is missing. 
 
 !ENTRY org.eclipse.egit.ui 4 0 2015-05-13 13:40:59.299
 !MESSAGE Errors occurred while refreshing resources with the local file system.
+
+!ENTRY org.eclipse.core.resources 2 2 2015-05-13 15:43:23.655
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2015-05-13 15:43:23.655
+!MESSAGE The project description file (.project) for 'forgetMeNot' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.ui 2 2 2015-05-17 22:17:08.914
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
