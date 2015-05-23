@@ -25,6 +25,7 @@ void loop() {
   
   if(startState == HIGH){
     startMotor();
+    delay(3000);
   }else if(buttonState == HIGH){
     stopMotor(); 
   }
@@ -38,28 +39,3 @@ void stopMotor(){
   digitalWrite(relay, HIGH); // stop the motor
 }
 
-
-
-
-
-
-
-
-
-
-
-//else if(x = 0){
-//    digitalWrite(relay, HIGH);
-//  }
-//    
-//  Serial.print("x = ");
-//  Serial.println(x);
-//  
-//  if(x == 1){
-//    digitalWrite(relay, LOW);
-//    
-//    if(buttonState == HIGH){
-//      digitalWrite(relay, HIGH);
-//      x=0;
-//    }
-//  }
