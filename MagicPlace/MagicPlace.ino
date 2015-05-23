@@ -1,4 +1,4 @@
-int start = 7; // Button to start the program
+int startButton = 7; // Button to start the program
 int stopButton = 2; // Button to stop the program when it made one round
 int relay = 4; // relay to control the motor 
 
@@ -15,18 +15,21 @@ void setup() {
 
 void loop() {
   
-  int startState= digitalRead(start); // read the state of start
-  int buttonState = digitalRead(stopButton); // read the state of stopbutton
+  int startState= digitalRead(startButton); // read the state of start
+  int stopState = digitalRead(stopButton); // read the state of stopbutton
   
-  Serial.print("start state ");
+  Serial.print("Start state ");
   Serial.println(startState); // print the startstate in the seriele monitor
-  Serial.print("button state ");
-  Serial.println(buttonState); // print the buttonstate in the seriele monitor
+  Serial.print("Stop state ");
+  Serial.println(stopState); // print the buttonstate in the seriele monitor
   
+  /*A if statment to check if the startButton or the StopButton is pressed.
+    When the startButton is pressed the motor will start moveing and if the
+    stopbutton is pressed the motor will stop.*/
   if(startState == HIGH){
     startMotor();
-    delay(3000);
-  }else if(buttonState == HIGH){
+    delay(3000); // the stopbutton is still pressed thats why we need a delay so the motor can move along the stopbutton
+  }else if(stopState == HIGH){
     stopMotor(); 
   }
 }
