@@ -59,12 +59,13 @@ void foto()
   int x, u;
   x = digitalRead(STARTBUTTON);
   u = digitalRead(STOPBUTTON);
-  // for(i = 0; i < 10; i++)
-  // {
-  //  sprintf(buffer, "sudo fswebcam -r 160x120 --no-banner /home/pi/theProgram/photos/pos/image%d.pgm", i);
-    //  system(buffer);
-    //  sleep(15);
-  // }
+   for(i = 0; i < 10; i++)
+   {
+    sprintf(buffer, "sudo raspistill -o image%d.pgm -w 275 -h 206 -t 1000", i);
+      system(buffer);
+      sleep(1500);
+    sprintf(buffer, "sudo mv image%d.pgm /path/to/whatever", i);  //pad waar je de image heen wilt hebben
+   }
   
   int i;
   for(i =0; i<5; i++)
