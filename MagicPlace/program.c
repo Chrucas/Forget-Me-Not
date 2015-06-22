@@ -22,13 +22,13 @@ void startMotor()
 
 void stopMotor()
 {
-  digitalWrite(RELAY, LOW);
+    digitalWrite(RELAY, LOW);
     openCV();
 }
 
 int main(void)
 {
-  wiringPiSetup () ;
+    wiringPiSetup () ;
     pinMode(STARTBUTTON, INPUT);
     pinMode(STOPBUTTON, INPUT);
     pinMode(RELAY, OUTPUT);
@@ -53,22 +53,23 @@ void foto()
 {
   
     printf("Capture image\n");
+    int i;
+    char buffer[250];
   
-    // for(i = 0; i < 10; i++)
-    //  {
-    //   sprintf(buffer, "sudo raspistill -o /home/pi/theProgram/photos/pos/image%d.jpg -w 275 -h 206 -t 1000", i); // volgens mij kon het zo ook sander
-    //     system(buffer);
-    //     //sleep(1500);
-    //   sprintf(buffer, "sudo mv image%d.jpg /home/pi/theProgram/photos/pos", i);  //pad waar je de image heen wilt hebben
-    //  }
-  
-    sleep(3);
+    for(i = 0; i < 15; i++)
+    {
+       sprintf(buffer, "sudo raspistill -o %d.jpg -w 275 -h 206 -t 1000", i); // volgens mij kon het zo ook sander
+       system(buffer);
+       usleep(1500);
+       sprintf(buffer, "sudo mv %d.jpg /home/pi/theProgram/photos/pos", i);  //pad waar je de image heen wilt hebben
+       system(buffer);
+    }
     stopMotor();
  }
 
 void openCV()
 {
-  int n = 0;
+    int n = 0;
     DIR *dir;
     char path[] = "/home/pi/theProgram/photos/copycascade";
     char *file[60];
@@ -92,15 +93,15 @@ void openCV()
 
     n = 0;
   
-  printf("Start making the vec file\n");
+    printf("Start making the vec file\n");
     // maakt vec file
-    sprintf(buffer, "sudo opencv_createsamples -info /home/pi/theProgram/photos/pospic.info -num 6 -w 48 -h 30 -vec /home/pi/theProgram/photos/object.vec");
+    sprintf(buffer, "sudo opencv_createsamples -info /home/pi/theProgram/photos/pospic.info -num 15 -w 48 -h 30 -vec /home/pi/theProgram/photos/object.vec");
     system(buffer);
     
     printf("Create XML\n");
     
     // maakt de xml
-    sprintf(buffer, "cd /home/pi/theProgram/photos\nsudo opencv_traincascade -data data -vec /home/pi/theProgram/photos/object.vec -bg /home/pi/theProgram/photos/file.txt -numPos 6 -numNeg 40 -numStages 9 -w 48 -h 30 -featureType LBP");
+    sprintf(buffer, "cd /home/pi/theProgram/photos\nsudo opencv_traincascade -data data -vec /home/pi/theProgram/photos/object.vec -bg /home/pi/theProgram/photos/file.txt -numPos 15 -numNeg 54 -numStages 9 -w 48 -h 30 -featureType LBP");
     system(buffer);
     printf("XML done\n");
   
